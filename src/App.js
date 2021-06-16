@@ -14,14 +14,14 @@ import Loogedin from './components/Loogedin/Loogedin';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
-export const userContext = createContext()
+export const UserContext = createContext()
 
 
 
 function App() {
   const [loogedInUser,setLoogedInUser] = useState({})
   return (
-    <userContext.Provider value = {[loogedInUser,setLoogedInUser]}  >
+    <UserContext.Provider value = {[loogedInUser,setLoogedInUser]}  >
       <h1>email {loogedInUser.email}</h1>
       
       <Router>
@@ -41,9 +41,9 @@ function App() {
           <Review></Review>
           </Route>
 
-          <PrivateRoute path="/inventory">
+          <Route path="/inventory">
           <Inventory></Inventory>
-          </PrivateRoute>
+          </Route>
           
           <Route path="/product/:productKey">
           <ProductDetail></ProductDetail>
@@ -77,7 +77,7 @@ function App() {
    
     
      
-    </userContext.Provider>
+    </UserContext.Provider>
   );
 }
 

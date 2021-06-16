@@ -4,7 +4,7 @@ import firebase from "firebase";
 import "firebase/analytics";
 import firebaseConfig from './firebaseConfig';
 import { useContext, useState } from 'react';
-import { userContext } from "../../App";
+import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router-dom";
 
 
@@ -29,7 +29,7 @@ function Loogedin() {
         photo: '',
         success: false,
     })
-    const [loogedInUser,setLoogedInUser] =useContext(userContext)
+    const [loogedInUser,setLoogedInUser] =useContext(UserContext)
     const history = useHistory()
     const location = useLocation()
     let { from } = location.state || { from: { pathname: "/" } };
